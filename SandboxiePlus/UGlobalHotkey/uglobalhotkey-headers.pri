@@ -1,8 +1,8 @@
 INCLUDEPATH += $$PWD/
 
 HEADERS += \
-    $$PWD/ukeysequence.h \
-    $$PWD/uglobalhotkeys.h \
-    $$PWD/uexception.h \
-    $$PWD/hotkeymap.h \
-    $$PWD/uglobal.h
+    ./ukeysequence.h \
+    ./uglobalhotkeys.h \
+    ./uexception.h \
+    ./hotkeymap.h \
+    ./uglobal.h
