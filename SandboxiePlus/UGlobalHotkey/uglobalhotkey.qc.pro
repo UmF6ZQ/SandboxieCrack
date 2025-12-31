@@ -1,4 +1,5 @@
 QT = core gui
+QT += gui-private
 unix {
     QT += gui-private
 }
