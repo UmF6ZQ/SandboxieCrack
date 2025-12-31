@@ -72,11 +72,12 @@ call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Buil
 
 
 
+if EXIST %~dp0\Build_UGlobalHotkey_%build_arch% rmdir /s /q %~dp0\Build_UGlobalHotkey_%build_arch%
 mkdir %~dp0\Build_UGlobalHotkey_%build_arch%
 cd %~dp0\Build_UGlobalHotkey_%build_arch%
 
 %qt_path%\bin\qmake.exe %~dp0\UGlobalHotkey\uglobalhotkey.qc.pro %qt_params%
-%~dp0..\..\Qt\Tools\QtCreator\bin\jom.exe -f Makefile.Release -j 8
+nmake -f Makefile.Release
 IF %ERRORLEVEL% NEQ 0 goto :error
 if NOT EXIST %~dp0\bin\%build_arch%\Release\UGlobalHotkey.dll goto :error
 
