@@ -12,13 +12,17 @@ CONFIG += c++11
 # Switch ABI to export (vs import, which is default)
 DEFINES += UGLOBALHOTKEY_LIBRARY
 
-INCLUDEPATH += .
-DEPENDPATH += .
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
 
-HEADERS += ./ukeysequence.h ./uglobalhotkeys.h ./uexception.h ./hotkeymap.h ./uglobal.h
-SOURCES += ./ukeysequence.cpp ./uglobalhotkeys.cpp ./uexception.cpp
+OBJECTS_DIR = release
+MOC_DIR = release
 
-message("Building UGlobalHotkey with SOURCES: $$SOURCES")
+HEADERS += $$PWD/ukeysequence.h $$PWD/uglobalhotkeys.h $$PWD/uexception.h $$PWD/hotkeymap.h $$PWD/uglobal.h
+SOURCES += $$PWD/ukeysequence.cpp $$PWD/uglobalhotkeys.cpp $$PWD/uexception.cpp
+
+message("PWD: $$PWD")
+message("SOURCES: $$SOURCES")
 
 # Linking options for different platforms
 linux: LIBS += -lxcb -lxcb-keysyms
