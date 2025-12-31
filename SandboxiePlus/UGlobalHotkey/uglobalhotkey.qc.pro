@@ -15,17 +15,10 @@ DEFINES += UGLOBALHOTKEY_LIBRARY
 INCLUDEPATH += .
 DEPENDPATH += .
 
-HEADERS += \
-    ukeysequence.h \
-    uglobalhotkeys.h \
-    uexception.h \
-    hotkeymap.h \
-    uglobal.h
+HEADERS += ./ukeysequence.h ./uglobalhotkeys.h ./uexception.h ./hotkeymap.h ./uglobal.h
+SOURCES += ./ukeysequence.cpp ./uglobalhotkeys.cpp ./uexception.cpp
 
-SOURCES += \
-    ukeysequence.cpp \
-    uglobalhotkeys.cpp \
-    uexception.cpp
+message("Building UGlobalHotkey with SOURCES: $$SOURCES")
 
 # Linking options for different platforms
 linux: LIBS += -lxcb -lxcb-keysyms
