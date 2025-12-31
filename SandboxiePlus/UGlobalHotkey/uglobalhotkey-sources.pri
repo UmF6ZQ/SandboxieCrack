@@ -1,8 +1,10 @@
 INCLUDEPATH += $$PWD/
 
-HEADERS += \
-    ./ukeysequence.h \
-    ./uglobalhotkeys.h \
-    ./uexception.h \
-    ./hotkeymap.h \
-    ./uglobal.h
+QT += gui-private
+
+SOURCES += \
+    ./ukeysequence.cpp \
+    ./uglobalhotkeys.cpp \
+    ./uexception.cpp
+
+
