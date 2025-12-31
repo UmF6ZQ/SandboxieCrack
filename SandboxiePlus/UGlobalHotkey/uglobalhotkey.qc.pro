@@ -11,9 +11,33 @@ CONFIG += c++11
 # Switch ABI to export (vs import, which is default)
 DEFINES += UGLOBALHOTKEY_LIBRARY
 
-include(uglobalhotkey-headers.pri)
-include(uglobalhotkey-sources.pri)
-include(uglobalhotkey-libs.pri)
+INCLUDEPATH += .
+DEPENDPATH += .
+
+HEADERS += \
+    ukeysequence.h \
+    uglobalhotkeys.h \
+    uexception.h \
+    hotkeymap.h \
+    uglobal.h
+
+SOURCES += \
+    ukeysequence.cpp \
+    uglobalhotkeys.cpp \
+    uexception.cpp
+
+# Linking options for different platforms
+linux: LIBS += -lxcb -lxcb-keysyms
+mac: LIBS += -framework Carbon
+
+windows {
+    *-g++* {
+        LIBS += -luser32
+    }
+    *-msvc* {
+        LIBS += user32.lib
+    }
+}
 
 CONFIG(release, debug|release):{
 QMAKE_CXXFLAGS_RELEASE = $$QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO
